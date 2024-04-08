@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8'  # Use OpenJDK 8
-          distribution: 'adopt'
+          distribution: 'zulu'  # Specify Zulu as the distribution
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v2
@@ -33,6 +33,6 @@ jobs:
       - name: Save Gradle build result
         run: echo "::set-output name=gradle_build_result::$(./gradlew build --console=plain)"
 
-      # - name: Update README
-      #   if: success()
-      #   run: echo "Gradle Build Result: ${{ steps.build.outputs.gradle_build_result }}" > README.md
+      - name: Update README
+        if: success()
+        run: echo "Gradle Build Result:${{ steps.build.outputs.gradle_build_result }}" > README.md
