@@ -33,12 +33,12 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build --console=plain
 
-      - name: Save Gradle build result
-        run: echo "::set-output name=gradle_build_result::$(./gradlew build --console=plain)"
+      # - name: Save Gradle build result
+      #   run: echo "::set-output name=gradle_build_result::$(./gradlew build --console=plain)"
 
-      - name: Update README
-        if: success()
-        run: echo "Gradle Build Result:${{ steps.build.outputs.gradle_build_result }}" > README.md
+      # - name: Update README
+      #   if: success()
+      #   run: echo "Gradle Build Result:${{ steps.build.outputs.gradle_build_result }}" > README.md
 
 
 
